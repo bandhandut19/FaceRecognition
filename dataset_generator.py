@@ -11,5 +11,15 @@ def insertOrUpdate(Id,Name,Age):
     connection=sqlite3.connect("initialDatabase.db")
     cmd = "SELECT * FROM STUDENTS WHERE ID="+str(Id)
     cursor=connection.execute(cmd)
+    isRecordExists = 0
+    for row in cursor:
+        isRecordExists=1
+    if(isRecordExists==1):
+        connection.execute("UPDATE STUDENTS SET Name=? WHERE Id=?",(Name,Id))
+        connection.execute("UPDATE STUDENTS SET Age=? WHERE Id=?",(Age,Id))
+    else:
+        connection.execute("INSERT INTO STUDENTS (Id,Name,Age) values(?,?,?)",(Id,Name,Age))
     
-
+    connection.commit()
+    connection.close()
+        
