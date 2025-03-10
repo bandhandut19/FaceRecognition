@@ -6,8 +6,8 @@ import sqlite3
 faceDetectionHelper= cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 webCam=cv2.VideoCapture(0)
 
-#database
-def insertOrUpdate(Id,Name,Age):
+#database insertion and updation
+def insertOrUpdateIntoDatabase(Id,Name,Age):
     connection=sqlite3.connect("initialDatabase.db")
     cmd = "SELECT * FROM STUDENTS WHERE ID="+str(Id)
     cursor=connection.execute(cmd)
@@ -22,4 +22,7 @@ def insertOrUpdate(Id,Name,Age):
     
     connection.commit()
     connection.close()
-        
+Id=input("Enter Employee ID")
+Name=input("Enter Employee Name")
+Age=input("Enter Employee Age")
+insertOrUpdateIntoDatabase(Id,Name,Age)
