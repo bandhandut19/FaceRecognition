@@ -37,7 +37,7 @@ while(True):
     faces=faceDetectionHelper.detectMultiScale(gray,1.3,5)
     for (x,y,w,h) in faces:
         sampleNumber=sampleNumber+1
-        cv2.imwrite("dataset/employee."+str(Id)+"."+str(sampleNumber)+".jpg",gray[y:y+h,x:x+w])
+        cv2.imwrite("dataset/flora."+str(Name)+"."+str(Id)+"."+str(sampleNumber)+".jpg",gray[y:y+h,x:x+w])
         cv2.rectangle(employeeImg,(x,y),(x+w,y+h),(0,255,0),2)
         cv2.waitKey(100)
     cv2.imshow("EmployeeFace",employeeImg)
