@@ -9,17 +9,17 @@ webCam=cv2.VideoCapture(0)
 #database insertion and updation
 def insertOrUpdateIntoDatabase(Id,Name,Age):
     connection=sqlite3.connect("employeeDatabase.db")
-    cmd = "SELECT * FROM STUDENTS WHERE ID="+str(Id)
+    cmd = "SELECT * FROM EMPLOYEES WHERE ID="+str(Id)
     cursor = connection.cursor()
     cursor=connection.execute(cmd)
     isRecordExists = 0
     for row in cursor:
         isRecordExists=1
     if(isRecordExists==1):
-        connection.execute("UPDATE STUDENTS SET Name=? WHERE Id=?",(Name,Id))
-        connection.execute("UPDATE STUDENTS SET Age=? WHERE Id=?",(Age,Id))
+        connection.execute("UPDATE EMPLOYEES SET Name=? WHERE Id=?",(Name,Id))
+        connection.execute("UPDATE EMPLOYEES SET Age=? WHERE Id=?",(Age,Id))
     else:
-        connection.execute("INSERT INTO STUDENTS (Id,Name,Age) values(?,?,?)",(Id,Name,Age))
+        connection.execute("INSERT INTO EMPLOYEES (Id,Name,Age) values(?,?,?)",(Id,Name,Age))
     
     connection.commit()
     connection.close()
