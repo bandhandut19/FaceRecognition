@@ -31,8 +31,8 @@ while(True):
         print(profile)
         if(profile!=None):
             cv2.putText(img, "Name: " + str(profile[1]), (x, y + h + 20), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 127), 2)
-            cv2.putText(img, "Id: " + str(profile[2]), (x, y + h + 45), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 127), 2)
-            # cv2.putText(img, "Age: " + str(profile[3]), (x, y + h + 70), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 127), 2)
+            cv2.putText(img, "Id: " + str(profile[0]), (x, y + h + 45), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 127), 2)
+            cv2.putText(img, "Age: " + str(profile[2]), (x, y + h + 70), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 127), 2)
           
     cv2.imshow("Recognize Employee of Flora Systems",img)
     if(cv2.waitKey(1)==ord('q')):
