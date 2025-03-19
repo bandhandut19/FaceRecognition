@@ -23,6 +23,9 @@ def getImagesWithID(path):
     return np.array(ids),faces
 
 ids,faces = getImagesWithID(path)
+
+
+
 recognizer.train(faces,ids)
 recognizer.save("train/trainingDataOfEmployees.yml")
 cv2.destroyAllWindows()
